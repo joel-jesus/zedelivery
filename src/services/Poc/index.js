@@ -19,7 +19,6 @@ const POCSEARCH_QUERY = gql`
   }
 `;
 const _pocSearch = (pos) => {
-  console.log('retorno _pocSearch',String(pos.lat),  String(pos.lng));
   Client.query({
     query: POCSEARCH_QUERY,
     variables: {
@@ -33,7 +32,6 @@ const _pocSearch = (pos) => {
       if (result) {
         const {data} = result;
         const id = data.pocSearch.map((res) => res.id);
-        console.log('gravo id',id.toString());
         storeData('poc_id', id.toString());
       }
     })

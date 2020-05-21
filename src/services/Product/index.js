@@ -46,7 +46,6 @@ const POCSEARCH_QUERY = gql`
   }
 `;
 const _poc = (id) => {
-  console.log('ID', String(id))
   Client.query({
     query: POCSEARCH_QUERY,
     variables: {
