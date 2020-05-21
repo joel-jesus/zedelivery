@@ -3,6 +3,7 @@ import {View, FlatList} from 'react-native';
 
 import Header from '../../components/Header';
 import CardList from './../../components/Card';
+
 import {getData} from '../../function';
 
 const Product = () => {
@@ -20,8 +21,18 @@ const Product = () => {
       <FlatList
         data={product}
         renderItem={({item}) => (
-          <CardList product={item.title} price={item.price} img={item.image} />
+          <View
+            style={{
+              alignContent:'center',
+              marginLeft: 65,
+              width: '69%',
+            }}
+          >
+            <CardList product={item.title} price={item.price} img={item.image} />
+          </View>
         )}
+        onEndReachedThreshold={10}
+        initialNumToRender={4}
       />
     </View>
   );
